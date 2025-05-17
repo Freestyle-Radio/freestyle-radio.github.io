@@ -264,7 +264,12 @@ audio::-webkit-media-controls-enclosure {
   font-size: 18px;
 }
 
-
+/* Скрываем громкость на мобильных устройствах */
+@media (max-width: 767px) {
+  .volume-control {
+    display: none;
+  }
+}
 
 
 /* footer */
