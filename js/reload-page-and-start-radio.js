@@ -12,10 +12,10 @@
     const handleStreamInterruption = () => {
       if (hasStarted) {
         console.warn("Аудио поток прервался. Перезагрузка страницы...");
-        // Перезагрузка через 3 секунды (можно настроить)
+        // Перезагрузка через 2 секунды (можно настроить)
         retryTimeout = setTimeout(() => {
           location.reload();
-        }, 3000);
+        }, 2000);
       }
     };
 
