@@ -264,6 +264,33 @@ audio::-webkit-media-controls-enclosure {
   font-size: 18px;
 }
 
+.equalizer {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .band {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .band label {
+      margin-top: 8px;
+      font-size: 0.75rem;
+    }
+
+    .band input[type="range"] {
+      writing-mode: bt-lr; /* IE */
+      -webkit-appearance: slider-vertical; /* WebKit */
+      width: 8px;
+      height: 120px;
+      background: #555;
+      border-radius: 4px;
+    }
+
 /* Скрываем громкость на мобильных устройствах */
 @media (max-width: 767px) {
   .volume-control {
