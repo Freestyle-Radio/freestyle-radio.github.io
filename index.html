@@ -24,6 +24,10 @@
                 Your browser does not support the
                 <code>audio</code>
           </audio>
+            
+          <!-- ВСТАВЬ ЭТО В HTML-ФАЙЛ, где должен быть эквалайзер -->
+          <section id="equalizer" class="equalizer-container"></section>
+  
           <div class="audio-controls">
             <div class="audio-controls__play-toggle">
               <div class="visualizer-bar"></div>
@@ -39,14 +43,10 @@
           </div>
         </div>
       </div>
-    </section>
-
-    <!-- ВСТАВКА ЭКВАЛАЙЗЕРА -->
-    <section id="equalizer" class="equalizer-container"></section>
-
+    </section>      
   </main>
   <!-- end -->
-
+  
   <!-- footer -->
   <footer></footer>
   <!-- end -->
@@ -62,109 +62,5 @@
   <script src="js/vol-radio.js"></script>  
   <!-- Автоматический перезапуск радио в случае прерываени аудио потока -->
   <script src="js/reload-page-and-start-radio.js"></script> 
-
-  <!-- ЭКВАЛАЙЗЕР JS -->
-  <script>
-  const frequencies = [60, 250, 1000, 4000, 16000];
-  const defaultBands = [0, 0, 0, 0, 0];
-  let bands = JSON.parse(localStorage.getItem("equalizerBands")) || defaultBands.slice();
-
-  const container = document.getElementById("equalizer");
-  const audio = document.getElementById("audio");
-
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  const source = audioCtx.createMediaElementSource(audio);
-  const filters = frequencies.map((freq, i) => {
-    const filter = audioCtx.createBiquadFilter();
-    filter.type = "peaking";
-    filter.frequency.value = freq;
-    filter.Q.value = 1;
-    filter.gain.value = bands[i];
-    return filter;
-  });
-
-  filters.reduce((prev, curr) => {
-    prev.connect(curr);
-    return curr;
-  }).connect(audioCtx.destination);
-
-  source.connect(filters[0]);
-
-  function updateUI() {
-    container.innerHTML = "<h2 style='color:white; text-align:center;'>Аудио Эквалайзер</h2>";
-    const sliders = document.createElement("div");
-    sliders.style.display = "flex";
-    sliders.style.gap = "20px";
-    sliders.style.justifyContent = "center";
-    sliders.style.margin = "20px auto";
-
-    frequencies.forEach((freq, i) => {
-      const wrapper = document.createElement("div");
-      wrapper.style.display = "flex";
-      wrapper.style.flexDirection = "column";
-      wrapper.style.alignItems = "center";
-      wrapper.style.color = "white";
-
-      const label = document.createElement("label");
-      label.textContent = freq + " Hz";
-
-      const input = document.createElement("input");
-      input.type = "range";
-      input.min = -12;
-      input.max = 12;
-      input.value = bands[i];
-      input.style.transform = "rotate(-90deg)";
-      input.oninput = (e) => {
-        const val = parseFloat(e.target.value);
-        bands[i] = val;
-        filters[i].gain.value = val;
-        localStorage.setItem("equalizerBands", JSON.stringify(bands));
-        valueLabel.textContent = val + " dB";
-      };
-
-      const valueLabel = document.createElement("span");
-      valueLabel.textContent = bands[i] + " dB";
-      valueLabel.style.fontSize = "0.75rem";
-
-      wrapper.append(label, input, valueLabel);
-      sliders.appendChild(wrapper);
-    });
-
-    const resetBtn = document.createElement("button");
-    resetBtn.textContent = "Сбросить настройки";
-    resetBtn.style.marginTop = "20px";
-    resetBtn.style.padding = "10px 20px";
-    resetBtn.style.background = "#dc2626";
-    resetBtn.style.color = "white";
-    resetBtn.style.border = "none";
-    resetBtn.style.cursor = "pointer";
-    resetBtn.onclick = () => {
-      bands = defaultBands.slice();
-      filters.forEach((f, i) => (f.gain.value = bands[i]));
-      localStorage.setItem("equalizerBands", JSON.stringify(bands));
-      updateUI();
-    };
-
-    container.appendChild(sliders);
-    container.appendChild(resetBtn);
-  }
-
-  updateUI();
-  </script>
-
-  <style>
-  .equalizer-container {
-    background: linear-gradient(to bottom, #1f2937, #000);
-    padding: 20px;
-    color: white;
-    text-align: center;
-  }
-  input[type="range"] {
-    width: 100px;
-    height: 30px;
-    appearance: none;
-    background: transparent;
-  }
-  </style>
 </body>
 </html>
