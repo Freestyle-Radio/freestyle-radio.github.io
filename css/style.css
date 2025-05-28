@@ -285,7 +285,9 @@ audio::-webkit-media-controls-enclosure {
 
 .band input[type="range"] {
   writing-mode: bt-lr; /* IE */
-  -webkit-appearance: slider-vertical; /* WebKit */
+/*  -webkit-appearance: slider-vertical; */
+  writing-mode: vertical-lr;
+  direction: rtl;
   width: 8px;
   height: 120px;
   background: #555;
