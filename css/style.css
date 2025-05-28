@@ -264,12 +264,27 @@ audio::-webkit-media-controls-enclosure {
   font-size: 18px;
 }
 
+.music-box + .equalizer-container {
+  margin-top: 30px;
+}
+
 /* Эквалайзер */
 .equalizer-container {
-  display: flex;
+/*   display: flex;
   justify-content: center;
   gap: 16px;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.equalizer-row {
+  display: flex;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 16px;
 }
 
 .band {
