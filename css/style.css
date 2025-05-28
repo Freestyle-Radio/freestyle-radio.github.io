@@ -269,15 +269,12 @@ audio::-webkit-media-controls-enclosure {
 }
 
 /* Эквалайзер */
+
 .equalizer-container {
-/*   display: flex;
+  display: flex;
   justify-content: center;
   gap: 16px;
-  flex-wrap: wrap; */
-    display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .equalizer-row {
