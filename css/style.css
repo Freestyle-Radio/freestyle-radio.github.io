@@ -45,13 +45,13 @@ main {
   position: relative;
 }
 
-input {
-  position: absolute;
-  bottom: -11px;
-  width: 100%;
-  margin: 0;
-  border: 0;
-  border-radius: 0;
+.volume-control input {
+    position: relative;
+    bottom: 5px;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
 }
 
 audio {
@@ -264,45 +264,52 @@ audio::-webkit-media-controls-enclosure {
   font-size: 18px;
 }
 
-.music-box + .equalizer-container {
-  margin-top: 30px;
-}
-
 /* Эквалайзер */
 
 .equalizer-container {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    /* margin-top: 15px; */
+    /* margin-bottom: 15px; */
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: lightblue;
 }
 
 .equalizer-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: nowrap;
-  gap: 16px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 34px;
+    position: relative;
 }
 
 .band {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    display: flex;
+    /* flex-direction: column; */
+    align-items: center;
+    writing-mode: vertical-lr;
+    width: 0px;
 }
 
 .band label {
-  margin-top: 8px;
-  font-size: 0.75rem;
+    margin-top: 0px;
+    font-size: 9px;
+    writing-mode: initial;
 }
 
 .band input[type="range"] {
-  writing-mode: bt-lr; /* IE */
-  writing-mode: vertical-lr;
-  direction: rtl;
-  width: 8px;
-  height: 120px;
-  background: #555;
-  border-radius: 4px;
+    writing-mode: bt-lr;
+    /* writing-mode: vertical-lr; */
+    direction: rtl;
+    width: 8px;
+    /* height: 120px; */
+    background: #555;
+    border-radius: 4px;
+    /* display: block;
 }
 
 /* Скрываем громкость на мобильных устройствах */
