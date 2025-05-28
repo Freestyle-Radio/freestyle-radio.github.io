@@ -54,6 +54,13 @@ main {
     border-radius: 0;
 }
 
+/* Скрываем громкость на мобильных устройствах */
+@media (max-width: 767px) {
+  .volume-control {
+    display: none;
+  }
+}
+
 audio {
   width: 120px;
 }
@@ -314,12 +321,7 @@ audio::-webkit-media-controls-enclosure {
 
 /* end */
 
-/* Скрываем громкость на мобильных устройствах */
-@media (max-width: 767px) {
-  .volume-control {
-    display: none;
-  }
-}
+
 
 
 /* footer */
