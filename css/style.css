@@ -265,7 +265,7 @@ audio::-webkit-media-controls-enclosure {
 }
 
 /* Эквалайзер */
-.equalizer {
+.equalizer-container {
   display: flex;
   justify-content: center;
   gap: 16px;
