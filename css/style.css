@@ -353,7 +353,7 @@ footer {
 }
 
 footer p {
-  margin: 0 auto;
+  margin: auto 0;
 }
   
 /* Backgraund */
