@@ -346,8 +346,10 @@ audio::-webkit-media-controls-enclosure {
 /* footer */
 
 footer {
-  height: 10vh;
-  background-color: #071b28;
+    text-align: center;
+    background-color: #071b28;
+    color: #004f88;
+    height: 10vh;
 }
   
 /* Backgraund */
