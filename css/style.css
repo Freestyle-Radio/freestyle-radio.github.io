@@ -351,6 +351,10 @@ footer {
     color: #004f88;
     height: 10vh;
 }
+
+footer p {
+  margin: 0 auto;
+}
   
 /* Backgraund */
 
