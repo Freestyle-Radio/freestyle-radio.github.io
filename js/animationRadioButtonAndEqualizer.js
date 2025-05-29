@@ -107,4 +107,33 @@ document.addEventListener("DOMContentLoaded", () => {
       audioCtx.resume();
     }
   });
+
+  const saveButton = document.getElementById('save-eq-settings');
+  const resetButton = document.getElementById('reset-eq-settings');
+
+  // Загрузка сохранённых настроек, если есть
+  const savedGains = JSON.parse(localStorage.getItem('equalizerGains'));
+  if (savedGains && savedGains.length === sliders.length) {
+    sliders.forEach((slider, i) => {
+      slider.value = savedGains[i];
+      filters[i].gain.value = parseFloat(savedGains[i]);
+    });
+  }
+
+  // Сохранение текущих значений
+  saveButton.addEventListener('click', () => {
+    const currentGains = Array.from(sliders).map(slider => slider.value);
+    localStorage.setItem('equalizerGains', JSON.stringify(currentGains));
+    alert('Настройки эквалайзера сохранены!');
+  });
+
+  // Сброс настроек
+  resetButton.addEventListener('click', () => {
+    sliders.forEach((slider, i) => {
+      slider.value = 0;
+      filters[i].gain.value = 0;
+    });
+    localStorage.removeItem('equalizerGains');
+    alert('Настройки эквалайзера сброшены по умолчанию.');
+  });
 });
