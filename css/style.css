@@ -286,10 +286,10 @@ audio::-webkit-media-controls-enclosure {
     background-color: lightblue;
 }
 
-.equalizer-container__wrapp-buttons {
+/* .equalizer-container__wrapp-buttons {
   flex-direction: line;
 }
-
+ */
 .equalizer-container button {
   width: 55px;
   height: 35px;
