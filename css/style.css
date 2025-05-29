@@ -291,9 +291,20 @@ audio::-webkit-media-controls-enclosure {
 }
  */
 .equalizer-container button {
-  width: 55px;
-  height: 35px;
-  
+    width: 140px;
+    height: 40px;
+    font-size: initial;
+    background-color: #008834;
+    color: #ffffff;
+    border: 0;
+    margin-right: 1px;
+    border-radius: 2px;
+}
+
+#reset-eq-settings {
+    background-color: #d00000;
+    color: #ffffff;
+    margin-left: 1px;
 }
 
 .equalizer-row {
