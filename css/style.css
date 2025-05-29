@@ -316,6 +316,7 @@ audio::-webkit-media-controls-enclosure {
     margin-top: 0px;
     font-size: 9px;
     writing-mode: initial;
+    color: #ff8c00;
 }
 
 .band input[type="range"] {
@@ -330,9 +331,6 @@ audio::-webkit-media-controls-enclosure {
 }
 
 /* end */
-
-
-
 
 /* footer */
 
