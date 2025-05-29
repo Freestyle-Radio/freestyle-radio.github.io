@@ -286,6 +286,12 @@ audio::-webkit-media-controls-enclosure {
     background-color: lightblue;
 }
 
+.equalizer-container button {
+  width: 55px;
+  height: 35px;
+  
+}
+
 .equalizer-row {
     display: flex;
     justify-content: center;
