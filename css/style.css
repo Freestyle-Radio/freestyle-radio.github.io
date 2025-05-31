@@ -330,7 +330,7 @@ audio::-webkit-media-controls-enclosure {
     color: #ff8c00;
 }
 
-.band input[type="range"] {
+/* .band input[type="range"] {
     writing-mode: bt-lr;
     /* writing-mode: vertical-lr; */
     direction: rtl;
@@ -339,7 +339,61 @@ audio::-webkit-media-controls-enclosure {
     background: #555;
     border-radius: 4px;
     /* display: block;
+} */
+
+.band input[type="range"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 8px;
+    height: 120px;
+    background: linear-gradient(to top, #ff8c00, #ffa94d);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    box-shadow: inset 0 0 3px rgba(0,0,0,0.4);
 }
+
+/* Стиль дорожки (для Firefox) */
+.band input[type="range"]::-moz-range-track {
+    background: transparent;
+    border: none;
+}
+
+/* Стиль ползунка (Chrome, Safari) */
+.band input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 8px;
+    background: #ffffff;
+    border: 2px solid #ff8c00;
+    border-radius: 3px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.band input[type="range"]::-webkit-slider-thumb:hover {
+    background: #ffd6a0;
+    transform: scale(1.1);
+}
+
+/* Стиль ползунка (Firefox) */
+.band input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 8px;
+    background: #ffffff;
+    border: 2px solid #ff8c00;
+    border-radius: 3px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.band input[type="range"]::-moz-range-thumb:hover {
+    background: #ffd6a0;
+    transform: scale(1.1);
+}
+
 
 /* end */
 
