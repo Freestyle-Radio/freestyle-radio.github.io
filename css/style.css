@@ -343,6 +343,107 @@ audio::-webkit-media-controls-enclosure {
 
 /* end */
 
+/* Модальное окно */
+/* Кнопка-гамбургер */
+.hamburger {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1001;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+}
+.hamburger span {
+  height: 4px;
+  background: #333;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Модальное окно */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 15, 15, 0.97);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* Активное состояние */
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+/* Контент внутри */
+.modal-content {
+  text-align: center;
+  color: #fff;
+}
+
+/* Кнопка закрытия */
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  font-size: 40px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Навигация */
+.modal-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: 24px;
+  margin-top: 80px;
+}
+
+.modal-menu a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.modal-menu a:hover {
+  color: #ff9900;
+}
+
+/* Отключаем прокрутку фона */
+body.modal-open {
+  overflow: hidden;
+}
+  
+@media (max-width: 600px) {
+  .modal-menu {
+    font-size: 20px;
+  }
+  .close-btn {
+    font-size: 36px;
+  }
+}
+
+/* end */
+  
 /* footer */
 
 footer {
