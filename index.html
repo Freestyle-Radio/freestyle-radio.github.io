@@ -40,7 +40,17 @@
           </div>
         </div>
       </div>
-      <div class="equalizer-container">
+
+      <!-- Кнопка-гамбургер -->
+      <button id="hamburger" class="hamburger" aria-label="Открыть меню">
+        <span></span><span></span><span></span>
+      </button>
+
+      <!-- Модальное окно -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <button class="close-btn" id="closeModal" aria-label="Закрыть меню">&times;</button>
+          <div class="equalizer-container">
           <div>
                 <button id="save-eq-settings">Save</button>
                 <button id="reset-eq-settings">Reset</button>
@@ -68,6 +78,10 @@
                 <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>16kHz</label></div>
            </div>
       </div>  
+        </div>
+      </div>
+        
+
     </section> 
   </main>
   <!-- end -->
@@ -94,6 +108,7 @@
   <script src="js/reload-page-and-start-radio.js"></script> 
   <!-- Код для функционирования эквалайзера -->
 <!--   <script src="js/equalizer.js"></script>  -->
-    
+   <!--     Модальное окно -->
+   <script src="modal.js"></script>
 </body>
 </html>
