@@ -1,14 +1,15 @@
-
 <html lang="en" dir="ltr">
-<head> 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/accordion.css">
-    <link rel=stylesheet href="css/style.css" media="all">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>Freestyle Radio</title>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/accordion.css">
+  <link rel=stylesheet href="css/style.css" media="all">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <title>Freestyle Radio</title>
 </head>
+
 <body>
   <header>
     <div class="logo">
@@ -19,13 +20,13 @@
     <section class="music-content">
       <div class="music-box">
         <!-- Кнопка для радиострима controls -->
-        <div class="audio-player-wrap">  
-<!--             https://visual.shoutca.st/stream/dance-radio-station/stream -->
-          <audio src="https://myradio24.org/29509" id="audio" class="audio-player" crossorigin="anonymous">
-                Your browser does not support the
-                <code>audio</code>
+        <div class="audio-player-wrap">
+          <!--             https://visual.shoutca.st/stream/dance-radio-station/stream -->
+          <audio src="https://myradio24.org/37113" id="audio" class="audio-player" crossorigin="anonymous">
+            Your browser does not support the
+            <code>audio</code>
           </audio>
-            
+
           <div class="audio-controls">
             <div class="audio-controls__play-toggle">
               <div class="visualizer-bar"></div>
@@ -52,59 +53,60 @@
         <div class="modal-content">
           <button class="close-btn" id="closeModal" aria-label="Закрыть меню">&times;</button>
           <div class="equalizer-container">
-          <div>
-                <button id="save-eq-settings">Save</button>
-                <button id="reset-eq-settings">Reset</button>
+            <div>
+              <button id="save-eq-settings">Save</button>
+              <button id="reset-eq-settings">Reset</button>
+            </div>
+            <div class="equalizer-row">
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>32Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>64Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>125Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>250Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>500Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>630Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>800Hz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.25kHz</label></div>
+            </div>
+            <div class="equalizer-row">
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.6kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2.5kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>3.15kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>4kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>5kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>6.3kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>8kHz</label></div>
+              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>16kHz</label></div>
+            </div>
           </div>
-          <div class="equalizer-row">
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>32Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>64Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>125Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>250Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>500Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>630Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>800Hz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.25kHz</label></div>
-           </div> 
-           <div class="equalizer-row"> 
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.6kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2.5kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>3.15kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>4kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>5kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>6.3kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>8kHz</label></div>
-                <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>16kHz</label></div>
-           </div>
-         </div>  
         </div>
       </div>
-        
 
-    </section> 
+
+    </section>
   </main>
   <!-- end -->
-  
+
   <!-- footer -->
   <footer>
-      <p>Всі права захищені</p>
+    <p>Всі права захищені</p>
   </footer>
   <!-- end -->
-<!--   <script src="js/all-audio.js"></script> -->
-<!--   <script src="js/vol.js"></script> -->
-<!--   <script src="js/menu.js"></script> -->
-<!--   <script src="js/accordion.js"></script> -->
+  <!--   <script src="js/all-audio.js"></script> -->
+  <!--   <script src="js/vol.js"></script> -->
+  <!--   <script src="js/menu.js"></script> -->
+  <!--   <script src="js/accordion.js"></script> -->
   <!-- Подключение переменной без которой не будет корректно работать кнопка для радио -->
   <script src="js/gsap.min.js"></script>
   <!-- Регулятор громкости радио -->
-  <script src="js/vol-radio.js"></script>  
+  <script src="js/vol-radio.js"></script>
   <!-- Скрипт анимации кнопки радио и функционирования эквалайзера + кнопок Save и Reset -->
   <script src="js/animationRadioButtonAndEqualizer.js"></script>
   <!-- Автоматический перезапуск радио в случае прерывания аудио потока (не работает скрипт) -->
-  <script src="js/reload-page-and-start-radio.js"></script> 
-   <!--     Модальное окно -->
-   <script src="js/modal.js"></script>
+  <script src="js/reload-page-and-start-radio.js"></script>
+  <!--     Модальное окно -->
+  <script src="js/modal.js"></script>
 </body>
+
 </html>
