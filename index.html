@@ -1,112 +1,334 @@
 <html lang="en" dir="ltr">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="css/reset.css">
-  <link rel="stylesheet" href="css/accordion.css">
-  <link rel=stylesheet href="css/style.css" media="all">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-  <title>Freestyle Radio</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel=stylesheet href="css/style.css" media="all">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Freestyle Radio</title>
 </head>
 
 <body>
-  <header>
-    <div class="logo">
-      <img src="img/Freestyle-Logo-removebg-preview.png" alt="logo" class="logo__img">
-    </div>
-  </header>
-  <main>
-    <section class="music-content">
-      <div class="music-box">
-        <!-- Кнопка для радиострима controls -->
-        <div class="audio-player-wrap">
-          <!--             https://visual.shoutca.st/stream/dance-radio-station/stream -->
-          <audio src="https://myradio24.org/37113" id="audio" class="audio-player" crossorigin="anonymous">
-            Your browser does not support the
-            <code>audio</code>
-          </audio>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <img src="img/Freestyle-Logo-removebg-preview.png" alt="logo" class="logo__img">
+            </div>
+            <!-- Гамбургер -->
+            <button id="hamburger" class="hamburger" aria-label="Открыть меню">
+                <span></span><span></span><span></span>
+            </button>
+        </header>
+        <div class="radio-battons">
+            <div class="btn" data-audio="stream1" id="btn1"><span>DANCE</span></div>
+            <div class="btn" data-audio="stream2" id="btn2"><span>HIP-HOP</span></div>
+            <div class="btn" data-audio="stream3" id="btn3"><span>K-POP</span></div>
+            <div class="btn" data-audio="stream4" id="btn4"><span>HOUSE</span></div>
+        </div>
 
-          <div class="audio-controls">
-            <div class="audio-controls__play-toggle">
-              <div class="visualizer-bar"></div>
-              <div class="play-icon"></div>
-              <div class="pause-icon"></div>
-            </div>
-            <div class="audio-controls__progress">
-              <div class="audio-controls__current-progress"></div>
-            </div>
-          </div>
-          <div class="volume-control">
+        <audio id="stream1" src="https://myradio24.org/37113" crossorigin="anonymous"></audio>
+        <audio id="stream2" src="https://myradio24.org/54297" crossorigin="anonymous"></audio>
+        <audio id="stream3" src="#"></audio>
+        <audio id="stream4" src="#"></audio>
+
+        <!-- Регулятор громкости -->
+        <div class="volume-control">
             <input type="range" id="volume" min="0" max="1" step="0.01" value="0.1">
-          </div>
         </div>
-      </div>
+    </div>
 
-      <!-- Кнопка-гамбургер -->
-      <button id="hamburger" class="hamburger" aria-label="Открыть меню">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- Модальное окно -->
-      <div id="modal" class="modal">
+    <!-- Модальное окно с эквалайзером -->
+    <div id="modal" class="modal">
         <div class="modal-content">
-          <button class="close-btn" id="closeModal" aria-label="Закрыть меню">&times;</button>
-          <div class="equalizer-container">
-            <div>
-              <button id="save-eq-settings">Save</button>
-              <button id="reset-eq-settings">Reset</button>
+            <button class="close-btn" id="closeModal" aria-label="Закрыть меню">&times;</button>
+            <div class="equalizer-container">
+                <div class="equalizer-row">
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>32Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>64Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>125Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>250Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>500Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>630Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>800Hz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.25kHz</label>
+                    </div>
+                </div>
+                <div class="equalizer-row">
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.6kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2.5kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>3.15kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>4kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>5kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>6.3kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>8kHz</label>
+                    </div>
+                    <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>16kHz</label>
+                    </div>
+                </div>
+                <div>
+                    <button id="save-eq-settings">Save</button>
+                    <button id="reset-eq-settings">Reset</button>
+                </div>
+                <p id="eq-message"></p>
             </div>
-            <div class="equalizer-row">
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>32Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>64Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>125Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>250Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>500Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>630Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>800Hz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.25kHz</label></div>
-            </div>
-            <div class="equalizer-row">
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.6kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2.5kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>3.15kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>4kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>5kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>6.3kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>8kHz</label></div>
-              <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>16kHz</label></div>
-            </div>
-          </div>
         </div>
-      </div>
+    </div>
 
+    <script>
 
-    </section>
-  </main>
-  <!-- end -->
+         //-----------------------------------------------------\\
+        // =================== Радио кнопки ==================== \\        
 
-  <!-- footer -->
-  <footer>
-    <p>Всі права захищені</p>
-  </footer>
-  <!-- end -->
-  <!--   <script src="js/all-audio.js"></script> -->
-  <!--   <script src="js/vol.js"></script> -->
-  <!--   <script src="js/menu.js"></script> -->
-  <!--   <script src="js/accordion.js"></script> -->
-  <!-- Подключение переменной без которой не будет корректно работать кнопка для радио -->
-  <script src="js/gsap.min.js"></script>
-  <!-- Регулятор громкости радио -->
-  <script src="js/vol-radio.js"></script>
-  <!-- Скрипт анимации кнопки радио и функционирования эквалайзера + кнопок Save и Reset -->
-  <script src="js/animationRadioButtonAndEqualizer.js"></script>
-  <!-- Автоматический перезапуск радио в случае прерывания аудио потока (не работает скрипт) -->
-  <script src="js/reload-page-and-start-radio.js"></script>
-  <!--     Модальное окно -->
-  <script src="js/modal.js"></script>
+        const buttons = document.querySelectorAll('.btn');
+        const audios = [
+            document.getElementById('stream1'),
+            document.getElementById('stream2'),
+            document.getElementById('stream3'),
+            document.getElementById('stream4')
+        ];
+
+        // переключения потоков
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const audioId = btn.dataset.audio;
+                const audio = document.getElementById(audioId);
+                const hasValidStream = audio.src && audio.src !== window.location.href + '#';
+
+                if (btn.classList.contains('active')) {
+                    if (hasValidStream && !audio.paused) {
+                        audio.pause();
+                    }
+                    btn.classList.remove('active');
+                } else {
+                    buttons.forEach(b => {
+                        const otherAudio = document.getElementById(b.dataset.audio);
+                        b.classList.remove('active');
+                        if (otherAudio && !otherAudio.paused) {
+                            otherAudio.pause();
+                        }
+                    });
+
+                    btn.classList.add('active');
+                    if (hasValidStream) {
+                        audio.play();
+                    }
+                }
+            });
+        });
+
+         //-----------------------------------------------------\\
+        // ================ Регугятор громкости ================ \\
+
+        const volumeControl = document.getElementById('volume');
+
+        function initVolumeControl() {
+            if (window.innerWidth > 768 && volumeControl) {
+                volumeControl.style.display = 'block';
+                // volumeControl.style.width = '100%';
+
+                audios.forEach(audio => audio.volume = volumeControl.value);
+
+                volumeControl.addEventListener('input', () => {
+                    const volume = volumeControl.value;
+                    audios.forEach(audio => {
+                        audio.volume = volume;
+                    });
+                });
+            } else if (volumeControl) {
+                volumeControl.style.display = 'none';
+            }
+        }
+
+        window.addEventListener('DOMContentLoaded', initVolumeControl);
+        window.addEventListener('resize', initVolumeControl);
+
+         //-----------------------------------------------------\\
+        // ================== Модальное окно =================== \\
+
+        const modal = document.getElementById("modal");
+        const hamburger = document.getElementById("hamburger");
+        const closeModal = document.getElementById("closeModal");
+
+        hamburger.addEventListener("click", () => {
+            modal.classList.add("active");
+            hamburger.classList.add("active");
+            document.body.classList.add("modal-open"); // блокируем скролл фона
+        });
+
+        closeModal.addEventListener("click", () => {
+            modal.classList.remove("active");
+            hamburger.classList.remove("active");
+            document.body.classList.remove("modal-open"); // разблокируем скролл
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modal.classList.contains("active")) {
+                modal.classList.remove("active");
+                hamburger.classList.remove("active");
+                document.body.classList.remove("modal-open");
+            }
+        });
+
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+                modal.classList.remove("active");
+                hamburger.classList.remove("active");
+                document.body.classList.remove("modal-open");
+            }
+        });
+
+         //-----------------------------------------------------\\
+        // ==================== Экварайзер ===================== \\
+
+        const eqBands = document.querySelectorAll(".band input[type='range']");
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const frequencies = [
+            32, 64, 125, 250, 500, 630, 800, 1000, 1250,
+            1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 16000
+        ];
+
+        // создание фильтров
+        const filters = frequencies.map((freq) => {
+            const filter = audioContext.createBiquadFilter();
+            filter.type = "peaking";
+            filter.frequency.value = freq;
+            filter.Q.value = 1;
+            filter.gain.value = 0;
+            return filter;
+        });
+
+        // соединяем фильтры в цепь
+        filters.reduce((prev, curr) => {
+            prev.connect(curr);
+            return curr;
+        });
+
+        const finalFilterNode = filters[filters.length - 1];
+
+        // применяем фильтры ко всем аудио элементам
+        const audioStream = [
+            document.getElementById("stream1"),
+            document.getElementById("stream2"),
+            document.getElementById("stream3"),
+            document.getElementById("stream4")
+        ];
+
+        audioStream.forEach(audio => {
+            const source = audioContext.createMediaElementSource(audio);
+            source.connect(filters[0]);
+        });
+
+        finalFilterNode.connect(audioContext.destination);
+
+        // привязка слайдеров к фильтрам
+        function applyEqSettings(values) {
+            values.forEach((val, i) => {
+                eqBands[i].value = val;
+                filters[i].gain.value = parseFloat(val);
+            });
+        }
+
+        eqBands.forEach((slider, index) => {
+            slider.addEventListener("input", () => {
+                filters[index].gain.value = parseFloat(slider.value);
+            });
+        });
+
+        // кнопки Save/Reset
+        const saveBtn = document.getElementById("save-eq-settings");
+        const resetBtn = document.getElementById("reset-eq-settings");
+        const eqMessage = document.getElementById("eq-message");
+
+        function showEqMessage(text) {
+            eqMessage.textContent = text;
+            eqMessage.style.opacity = 1;
+
+            setTimeout(() => {
+                eqMessage.style.opacity = 0;
+            }, 2000);
+        }
+
+        saveBtn.addEventListener("click", () => {
+            const settings = Array.from(eqBands).map(slider => slider.value);
+            localStorage.setItem("eqSettings", JSON.stringify(settings));
+            showEqMessage("Настройка сохранена");
+        });
+
+        resetBtn.addEventListener("click", () => {
+            eqBands.forEach((slider, i) => {
+                slider.value = 0;
+                filters[i].gain.value = 0;
+            });
+            localStorage.removeItem("eqSettings");
+            showEqMessage("Сброс настроек");
+        });
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const saved = localStorage.getItem("eqSettings");
+            if (saved) {
+                const values = JSON.parse(saved);
+                if (values.length === eqBands.length) {
+                    applyEqSettings(values);
+                }
+            }
+        });
+
+        // разрешение автозапуска аудио
+        window.addEventListener("click", () => {
+            if (audioContext.state === "suspended") {
+                audioContext.resume();
+            }
+        }, { once: true });
+
+        //--------------------------------------------------\\
+        // === Анимация для каждой активной радио кнопки === \\
+
+        const analyser = audioContext.createAnalyser();
+        analyser.fftSize = 128;
+
+        const bufferLength = analyser.frequencyBinCount;
+        const dataArray = new Uint8Array(bufferLength);
+
+        finalFilterNode.connect(analyser); 
+ 
+        function animateButtons() {
+            requestAnimationFrame(animateButtons);
+            analyser.getByteFrequencyData(dataArray);
+
+            const avg = dataArray.reduce((a, b) => a + b) / dataArray.length;
+            const level = Math.min(100, (avg / 255) * 100);
+
+            buttons.forEach(btn => {
+                if (btn.classList.contains("active")) {
+                    btn.style.setProperty("--eqHeight", `${level}%`);
+                } else {
+                    btn.style.setProperty("--eqHeight", "0%");
+                }
+            });
+        }
+
+        animateButtons();
+
+    </script>
+
+    <script src="js/gsap.min.js"></script>
 </body>
-
 </html>
