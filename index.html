@@ -6,6 +6,10 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel=stylesheet href="css/style.css" media="all">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <!-- Подключаем иконки для модильных устройств -->
+    <link rel="manifest" href="/manifest.json"> 
+    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png">
+
     <title>Freestyle Radio</title>
 </head>
 
@@ -140,7 +144,7 @@
         const volumeControl = document.getElementById('volume');
 
         function initVolumeControl() {
-            if (window.innerWidth > 768 && volumeControl) {
+            if (window.innerWidth > 1024 && volumeControl) {
                 volumeControl.style.display = 'block';
                 // volumeControl.style.width = '100%';
 
