@@ -1,6 +1,6 @@
 {
   "name": "Интернет радио Freestyle",
-  "short_name": "Freestyle",
+  "short_name": "",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
