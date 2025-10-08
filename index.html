@@ -331,6 +331,74 @@
 
         animateButtons();
 
+            
+        //-----------------------------------------------------\\
+        // === Автовозврат потока при падении эквалайзера  === \\
+        //-----------------------------------------------------\\
+
+        let observer = null;
+
+        function watchButton(btn) {
+            // Если уже был наблюдатель — отключаем
+            if (observer) {
+                observer.disconnect();
+                observer = null;
+            }
+
+            if (!btn) return;
+
+            // Создаем новый наблюдатель
+            observer = new MutationObserver(() => {
+                const eqHeight = btn.style.getPropertyValue('--eqHeight') || "0%";
+                const numericValue = parseFloat(eqHeight);
+
+                if (numericValue === 0) {
+                    // Сохраняем id активной кнопки
+                    localStorage.setItem("lastActiveBtnId", btn.id);
+
+                    // Перезагружаем страницу
+                    location.reload();
+                }
+            });
+
+            observer.observe(btn, {
+                attributes: true,
+                attributeFilter: ["style"]
+            });
+        }
+
+        function findAndWatchActiveBtn() {
+            const activeBtn = document.querySelector('.btn.active');
+            watchButton(activeBtn);
+        }
+
+        //-----Автовосстановление после reload-----------------\\
+        window.addEventListener("DOMContentLoaded", () => {
+            const lastActiveBtnId = localStorage.getItem("lastActiveBtnId");
+            if (lastActiveBtnId) {
+                const lastBtn = document.getElementById(lastActiveBtnId);
+                if (lastBtn) {
+                    lastBtn.click(); // Запускаем поток
+                }
+                localStorage.removeItem("lastActiveBtnId");
+            }
+
+            // Следим за изменениями класса active (переключение потока)
+            const container = document.body; // можно уточнить родителя кнопок
+            const classObserver = new MutationObserver(() => {
+                findAndWatchActiveBtn();
+            });
+
+            classObserver.observe(container, {
+                subtree: true,
+                attributes: true,
+                attributeFilter: ["class"]
+            });
+
+            // Первоначальный запуск
+            findAndWatchActiveBtn();
+        });
+
     </script>
 
     <script src="js/gsap.min.js"></script>
