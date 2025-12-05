@@ -10,6 +10,17 @@
 </head>
 
 <body>
+    <!-- Страница пароля -->
+    <div id="password-protect">
+        <h2>Enter password</h2>
+        <input id="pass-input" type="password" placeholder="Password">
+        <button id="pass-btn">Enter</button>
+        <div id="wrong-pass" style="color:#ff8080;">Wrong password</div>
+        <div id="attempts-left" style="color:#ffd480;"></div>
+        <div id="locked">Too many attempts. Refresh the page.</div>
+    </div>
+    <!-- end -->
+    <!-- Содержимое сайта -->
     <div class="container">
         <div class="container__box">  
             <header>
@@ -59,7 +70,6 @@
             </footer>
         </div>
     </div>
-
 
     <!-- Модальное окно с эквалайзером -->
     <div id="modal" class="modal">
@@ -118,8 +128,10 @@
 
     <script>
 
-    //-----------------------------------------------------\\
-    // =================== Радио кнопки ==================== \\        
+
+      //-----------------------------------------------------\\
+     // ==================== Радио кнопки =================== \\
+    //---------------------------------------------------------\\     
 
     const buttons = document.querySelectorAll('.btn');
     const audios = [
@@ -154,8 +166,11 @@
         });
     });
 
-    //-----------------------------------------------------\\
-    // ================ Регулятор громкости ================ \\
+
+      //-----------------------------------------------------\\
+     // ================= Регулятор громкости =============== \\
+    //---------------------------------------------------------\\
+
 
     const volumeControl = document.getElementById('volume');
 
@@ -177,73 +192,74 @@
     window.addEventListener('DOMContentLoaded', initVolumeControl);
     window.addEventListener('resize', initVolumeControl);
 
-    //-----------------------------------------------------\\
-    // ================== Модальное окно =================== \\
 
-// ----------------- Unified modal + hamburger controller (fixed) -----------------
-(function(){
-    const modalEl = document.getElementById("modal");
-    const hamburgerEl = document.getElementById("hamburger");
-    const closeBtnEl = document.getElementById("closeModal"); // может быть null
+      //-----------------------------------------------------\\
+     // ================= Модальное окно ==================== \\
+    //---------------------------------------------------------\\
 
-    // Если нет обязательных элементов — выходим
-    if (!modalEl || !hamburgerEl) return;
 
-    function openMenu() {
-        hamburgerEl.classList.add("active");
-        modalEl.classList.add("active");
-        document.body.classList.add("modal-open");
-    }
+    (function(){
+        const modalEl = document.getElementById("modal");
+        const hamburgerEl = document.getElementById("hamburger");
+        const closeBtnEl = document.getElementById("closeModal"); // может быть null
 
-    function closeMenu() {
-        hamburgerEl.classList.remove("active");
-        modalEl.classList.remove("active");
-        document.body.classList.remove("modal-open");
-    }
+        // Если нет обязательных элементов — выходим
+        if (!modalEl || !hamburgerEl) return;
 
-    // Toggle hamburger
-    hamburgerEl.addEventListener("click", (e) => {
-        // предотвращаем двойные клики/бублирование
-        e.stopPropagation();
-        if (hamburgerEl.classList.contains("active")) {
-            closeMenu();
-        } else {
-            openMenu();
+        function openMenu() {
+            hamburgerEl.classList.add("active");
+            modalEl.classList.add("active");
+            document.body.classList.add("modal-open");
         }
-    });
 
-    // Если существует кнопка внутри модалки — повесим на неё обработчик
-    if (closeBtnEl) {
-        closeBtnEl.addEventListener("click", (e) => {
+        function closeMenu() {
+            hamburgerEl.classList.remove("active");
+            modalEl.classList.remove("active");
+            document.body.classList.remove("modal-open");
+        }
+
+        // Toggle hamburger
+        hamburgerEl.addEventListener("click", (e) => {
+            // предотвращаем двойные клики/бублирование
             e.stopPropagation();
-            closeMenu();
+            if (hamburgerEl.classList.contains("active")) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
         });
-    }
 
-    // ESC закрывает
-    document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && modalEl.classList.contains("active")) {
-            closeMenu();
+        // Если существует кнопка внутри модалки — повесим на неё обработчик
+        if (closeBtnEl) {
+            closeBtnEl.addEventListener("click", (e) => {
+                e.stopPropagation();
+                closeMenu();
+            });
         }
-    });
 
-    // Клик по фону модалки закрывает
-    modalEl.addEventListener("click", (e) => {
-        if (e.target === modalEl) closeMenu();
-    });
+        // ESC закрывает
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && modalEl.classList.contains("active")) {
+                closeMenu();
+            }
+        });
 
-    // Не даём кликам внутри контента всплыть на фон
-    const modalContent = modalEl.querySelector(".modal-content");
-    if (modalContent) {
-        modalContent.addEventListener("click", (e) => e.stopPropagation());
-    }
-})();
+        // Клик по фону модалки закрывает
+        modalEl.addEventListener("click", (e) => {
+            if (e.target === modalEl) closeMenu();
+        });
 
+        // Не даём кликам внутри контента всплыть на фон
+        const modalContent = modalEl.querySelector(".modal-content");
+        if (modalContent) {
+            modalContent.addEventListener("click", (e) => e.stopPropagation());
+        }
+    })();
 
+      //-----------------------------------------------------\\
+     // ==================== Эквалайзер ===================== \\
+    //---------------------------------------------------------\\
 
-
-    //-----------------------------------------------------\\
-    // ==================== Эквалайзер ===================== \\
 
     const eqBands = document.querySelectorAll(".band input[type='range']");
     const audioContext = new (window.AudioContext || window.webkitAudioContext)();
@@ -322,9 +338,11 @@
         if (audioContext.state === "suspended") audioContext.resume();
     }, { once: true });
 
-    //--------------------------------------------------\\
-    // === Анимация для активной кнопки по частотам === \\
-    //--------------------------------------------------\\
+
+      //-----------------------------------------------------\\
+     // ===== Анимация для активной кнопки по частотам ====== \\
+    //---------------------------------------------------------\\
+
 
     const analyser = audioContext.createAnalyser();
     analyser.fftSize = 128;
@@ -349,9 +367,10 @@
     }
     animateButtons();
 
-    //-----------------------------------------------------\\
-    // === Сохранение громкости === \\
-    //-----------------------------------------------------\\
+
+      //-----------------------------------------------------\\
+     // ============== Сохранение громкости ================= \\
+    //---------------------------------------------------------\\
 
     const volumeSlider = document.getElementById("volume");
 
@@ -368,10 +387,10 @@
     });
 
 
-    //-----------------------------------------------------\\
-    // === Перезагрузка страницы при обрыве потока === \\
-    //   Работает даже при заблокированном экране телефона
-    //-----------------------------------------------------\\
+       //--------------------------------------------------------\\
+      // ====== Перезагрузка страницы при обрыве потока ========= \\
+     // === Работает даже при заблокированном экране телефона ==== \\
+    //--------------------------------------------------------------\\
 
     function watchStream() {
         setInterval(() => {
@@ -396,8 +415,95 @@
     watchStream();
 
 
-    </script>
+      //-----------------------------------------------------\\
+     // ================ Страница пароля ==================== \\
+    //---------------------------------------------------------\\
 
+
+    const REAL_PASSWORD = "F3$t_Y[L.7]"; // ← УСТАНОВИ СВОЙ ПАРОЛЬ
+    const PROTECT_DIV = document.getElementById("password-protect");
+    const MAX_ATTEMPTS = 5;
+
+    // Загружаем количество попыток
+    let attempts = Number(localStorage.getItem("password_attempts")) || 0;
+
+    // Если пароль уже вводили — открываем сайт
+    if (localStorage.getItem("access_granted") === "yes") {
+        PROTECT_DIV.classList.add("hidden");
+    }
+
+    // Если попытки закончились
+    if (attempts >= MAX_ATTEMPTS) lockSystem();
+
+    // === Прячем placeholder при клике и возвращаем при выходе ===
+    const passInput = document.getElementById("pass-input");
+
+    passInput.addEventListener("focus", () => {
+        passInput.setAttribute("data-placeholder", passInput.placeholder);
+        passInput.placeholder = "";
+    });
+
+    passInput.addEventListener("blur", () => {
+        if (passInput.value === "") {
+            passInput.placeholder = passInput.getAttribute("data-placeholder");
+        }
+    });
+
+    document.getElementById("pass-btn").addEventListener("click", checkPass);
+    document.getElementById("pass-input").addEventListener("keypress", (e) => {
+        if (e.key === "Enter") checkPass();
+    });
+
+    function checkPass() {
+        const input = document.getElementById("pass-input").value;
+
+        // Если попыток больше нет
+        if (attempts >= MAX_ATTEMPTS) {
+            lockSystem();
+            return;
+        }
+
+        if (input === REAL_PASSWORD) {
+            localStorage.setItem("access_granted", "yes");
+            PROTECT_DIV.classList.add("hidden");
+
+            setTimeout(() => {
+                PROTECT_DIV.style.display = "none";
+            }, 600);
+
+        } else {
+            attempts++;
+            localStorage.setItem("password_attempts", attempts);
+
+            document.getElementById("wrong-pass").style.display = "block";
+
+            // Показываем сколько осталось попыток
+            const left = MAX_ATTEMPTS - attempts;
+            const attemptsDiv = document.getElementById("attempts-left");
+            attemptsDiv.style.display = "block";
+            attemptsDiv.textContent = `Attempts left: ${left}`;
+
+            if (attempts >= MAX_ATTEMPTS) {
+                lockSystem();
+            }
+
+            setTimeout(() => {
+                document.getElementById("wrong-pass").style.display = "none";
+            }, 2000);
+        }
+    }
+
+    function lockSystem() {
+        document.getElementById("locked").style.display = "block";
+        document.getElementById("attempts-left").style.display = "none";
+        document.getElementById("pass-btn").disabled = true;
+        document.getElementById("pass-input").disabled = true;
+    }
+
+
+    </script>
     <script src="js/gsap.min.js"></script>
+
+
 </body>
 </html>

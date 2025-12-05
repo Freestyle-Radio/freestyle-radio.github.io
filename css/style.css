@@ -16,7 +16,7 @@ a {
 }
 
 h2 {
-    color: white;
+    color: #eaeaea;;
 }
 
 .container {
@@ -48,7 +48,11 @@ header {
     height: 7vh;
 }
 
-/* Гамбургер и Модальное окно */
+
+/* ----------------------------------------
+   -----Гамбургер и Модальное окно -------- 
+   ---------------------------------------- */
+
 .hamburger {
     /* position: fixed;
     top: 20px;
@@ -142,8 +146,12 @@ body.modal-open {
     overflow: hidden;
 }
 
-/* end */
-/* Радио кнопки */
+/* ---------------- End ------------------- */
+
+
+/* ----------------------------------------
+   ------------ Радио кнопки -------------- 
+   ---------------------------------------- */
 
 .radio-battons {
     display: grid;
@@ -193,9 +201,12 @@ body.modal-open {
 
 }
 
+/* ---------------- End ------------------- */
 
-/* end */
-/* Регулятор громкости */
+
+/* ----------------------------------------
+   -------- Регулятор громкости ----------- 
+   ---------------------------------------- */
 
 .volume-control input[type="range"] {
     -webkit-appearance: none;
@@ -250,8 +261,12 @@ body.modal-open {
     -o-border-radius: 50%;
 }
 
-/* end */
-/* Эквалайзер */
+/* ---------------- End ------------------- */
+
+
+/* ----------------------------------------
+   -------------- Эквалайзер -------------- 
+   ---------------------------------------- */
 
 .equalizer-container {
     display: flex;
@@ -388,7 +403,11 @@ body.modal-open {
     padding-bottom: 40px;
 }
 
-/* end */
+/* ---------------- End ------------------- */
+
+/* ----------------------------------------
+   ---------------- Футер ----------------- 
+   ---------------------------------------- */
 
 .footer {
     color: #747474;
@@ -424,4 +443,78 @@ body.modal-open {
     margin-top: 20px;
     border-top: 1px solid #444444;
 }
+
+
+/* ----------------------------------------
+   ----------- Страница пароля ------------ 
+   ---------------------------------------- */
+
+#password-protect {
+    position: fixed;
+    inset: 0;
+    background: #000000ee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#password-protect.hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+#password-protect h2 {
+    color: rgb(255, 145, 0);
+    margin-bottom: 10px;
+}
+
+#password-protect input {
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    width: 260px;
+    text-align: center;
+    background-color: #fffffd;
+}
+
+#password-protect button {
+    padding: 10px 109px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background:#3e8e41;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#password-protect button:hover {
+    background: #265b28;
+}
+
+#wrong-pass, #attempts-left, #locked {
+    margin-top: 10px;
+    font-size: 16px;
+    display: none;
+}
+
+#locked {
+    color: #ff5050;
+}
+
+/* ---------------- End ------------------- */
+
+
+
 
