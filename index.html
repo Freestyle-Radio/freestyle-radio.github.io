@@ -6,46 +6,64 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel=stylesheet href="css/style.css" media="all">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <!-- Подключаем иконки для модильных устройств -->
-    <link rel="manifest" href="/manifest.json"> 
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-icon-180.png">
-
     <title>Freestyle Radio</title>
 </head>
 
 <body>
     <div class="container">
-        <header>
-            <div class="logo">
-                <img src="img/Freestyle-Logo-removebg-preview.png" alt="logo" class="logo__img">
+        <div class="container__box">  
+            <header>
+                <div class="logo">
+                    <img src="img/Freestyle-Logo-removebg-preview.png" alt="logo" class="logo__img">
+                </div>
+                <!-- Гамбургер -->
+                <button id="hamburger" class="hamburger" aria-label="Открыть меню">
+                    <span></span><span></span><span></span>
+                </button>
+            </header>
+            <div class="radio-battons">
+                <div class="btn" data-audio="stream1" id="btn1"><span>DANCE</span></div>
+                <div class="btn" data-audio="stream2" id="btn2"><span>HIP-HOP</span></div>
+                <div class="btn" data-audio="stream3" id="btn3"><span>K-POP</span></div>
+                <div class="btn" data-audio="stream4" id="btn4"><span>ELECTRO HOUSE</span></div>
             </div>
-            <!-- Гамбургер -->
-            <button id="hamburger" class="hamburger" aria-label="Открыть меню">
-                <span></span><span></span><span></span>
-            </button>
-        </header>
-        <div class="radio-battons">
-            <div class="btn" data-audio="stream1" id="btn1"><span>DANCE</span></div>
-            <div class="btn" data-audio="stream2" id="btn2"><span>HIP-HOP</span></div>
-            <div class="btn" data-audio="stream3" id="btn3"><span>K-POP</span></div>
-            <div class="btn" data-audio="stream4" id="btn4"><span>HOUSE</span></div>
-        </div>
 
-        <audio id="stream1" src="https://myradio24.org/37113" crossorigin="anonymous"></audio>
-        <audio id="stream2" src="#" crossorigin="anonymous"></audio>
-        <audio id="stream3" src="#"></audio>
-        <audio id="stream4" src="#"></audio>
+            <audio id="stream1" src="https://myradio24.org/37113" crossorigin="anonymous"></audio>
+            <audio id="stream2" src="#"></audio>
+            <audio id="stream3" src="#"></audio>
+            <audio id="stream4" src="#"></audio>
 
-        <!-- Регулятор громкости -->
-        <div class="volume-control">
-            <input type="range" id="volume" min="0" max="1" step="0.01" value="0.1">
+            <!-- Регулятор громкости -->
+            <div class="volume-control">
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="0.1">
+            </div>
+        </div>  
+        <div class="container__box">
+            <!-- Футер -->
+            <footer class="footer">
+            <ul>
+                <!-- information_about_us.html -->
+                <li><a href="information_about_us.html">Інформація про нас</a></li>
+                <!-- advertising_placement.html -->
+                <li><a href="advertising_placement.html">Розміщення реклами</a></li>
+                <!-- to_the_rights_holders.html -->
+                <li><a href="to_the_rights_holders.html">Правовласникам</a></li>
+                <!-- collaboration.html -->
+                <li><a href="collaboration.html">Співробітництво</a></li>
+                <!-- reviews.html -->
+                <li><a href="reviews.html">Відгуки</a></li>
+                <!-- frequently_asked_questions.html -->
+                <li><a href="frequently_asked_questions.html">Часті запитання</a></li>
+                <li>Усі права захищені</li>
+            </ul>   
+            </footer>
         </div>
     </div>
+
 
     <!-- Модальное окно с эквалайзером -->
     <div id="modal" class="modal">
         <div class="modal-content">
-            <button class="close-btn" id="closeModal" aria-label="Закрыть меню">&times;</button>
             <div class="equalizer-container">
                 <div class="equalizer-row">
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>32Hz</label>
@@ -60,20 +78,22 @@
                     </div>
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>630Hz</label>
                     </div>
+                </div>
+                <div class="equalizer-row">
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>800Hz</label>
                     </div>
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1kHz</label>
                     </div>
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.25kHz</label>
                     </div>
-                </div>
-                <div class="equalizer-row">
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>1.6kHz</label>
                     </div>
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2kHz</label>
                     </div>
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>2.5kHz</label>
                     </div>
+                </div>
+                <div class="equalizer-row">
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>3.15kHz</label>
                     </div>
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>4kHz</label>
@@ -87,7 +107,7 @@
                     <div class="band"><input type="range" min="-12" max="12" value="0" step="1"><label>16kHz</label>
                     </div>
                 </div>
-                <div>
+                <div class="equalizer-buttons">
                     <button id="save-eq-settings">Save</button>
                     <button id="reset-eq-settings">Reset</button>
                 </div>
@@ -98,306 +118,283 @@
 
     <script>
 
-         //-----------------------------------------------------\\
-        // =================== Радио кнопки ==================== \\        
+    //-----------------------------------------------------\\
+    // =================== Радио кнопки ==================== \\        
 
-        const buttons = document.querySelectorAll('.btn');
-        const audios = [
-            document.getElementById('stream1'),
-            document.getElementById('stream2'),
-            document.getElementById('stream3'),
-            document.getElementById('stream4')
-        ];
+    const buttons = document.querySelectorAll('.btn');
+    const audios = [
+        document.getElementById('stream1'),
+        document.getElementById('stream2'),
+        document.getElementById('stream3'),
+        document.getElementById('stream4')
+    ];
 
-        // переключения потоков
-        buttons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const audioId = btn.dataset.audio;
-                const audio = document.getElementById(audioId);
-                const hasValidStream = audio.src && audio.src !== window.location.href + '#';
+    // переключение потоков
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const audioId = btn.dataset.audio;
+            const audio = document.getElementById(audioId);
+            const hasValidStream = audio.src && audio.src !== window.location.href + '#';
 
-                if (btn.classList.contains('active')) {
-                    if (hasValidStream && !audio.paused) {
-                        audio.pause();
+            if (btn.classList.contains('active')) {
+                if (hasValidStream && !audio.paused) audio.pause();
+                btn.classList.remove('active');
+            } else {
+                buttons.forEach(b => {
+                    const otherAudio = document.getElementById(b.dataset.audio);
+                    b.classList.remove('active');
+                    if (otherAudio && !otherAudio.paused) {
+                        otherAudio.pause();
                     }
-                    btn.classList.remove('active');
-                } else {
-                    buttons.forEach(b => {
-                        const otherAudio = document.getElementById(b.dataset.audio);
-                        b.classList.remove('active');
-                        if (otherAudio && !otherAudio.paused) {
-                            otherAudio.pause();
-                        }
-                    });
-
-                    btn.classList.add('active');
-                    if (hasValidStream) {
-                        audio.play();
-                    }
-                }
-            });
-        });
-
-         //-----------------------------------------------------\\
-        // ================ Регугятор громкости ================ \\
-
-        const volumeControl = document.getElementById('volume');
-
-        function initVolumeControl() {
-            if (window.innerWidth > 1024 && volumeControl) {
-                volumeControl.style.display = 'block';
-                // volumeControl.style.width = '100%';
-
-                audios.forEach(audio => audio.volume = volumeControl.value);
-
-                volumeControl.addEventListener('input', () => {
-                    const volume = volumeControl.value;
-                    audios.forEach(audio => {
-                        audio.volume = volume;
-                    });
                 });
-            } else if (volumeControl) {
-                volumeControl.style.display = 'none';
+
+                btn.classList.add('active');
+                if (hasValidStream) audio.play();
             }
+        });
+    });
+
+    //-----------------------------------------------------\\
+    // ================ Регулятор громкости ================ \\
+
+    const volumeControl = document.getElementById('volume');
+
+    function initVolumeControl() {
+        if (window.innerWidth > 768 && volumeControl) {
+            volumeControl.style.display = 'block';
+            audios.forEach(audio => audio.volume = volumeControl.value);
+
+            volumeControl.addEventListener('input', () => {
+                const volume = volumeControl.value;
+                audios.forEach(audio => audio.volume = volume);
+            });
+
+        } else if (volumeControl) {
+            volumeControl.style.display = 'none';
         }
+    }
 
-        window.addEventListener('DOMContentLoaded', initVolumeControl);
-        window.addEventListener('resize', initVolumeControl);
+    window.addEventListener('DOMContentLoaded', initVolumeControl);
+    window.addEventListener('resize', initVolumeControl);
 
-         //-----------------------------------------------------\\
-        // ================== Модальное окно =================== \\
+    //-----------------------------------------------------\\
+    // ================== Модальное окно =================== \\
 
-        const modal = document.getElementById("modal");
-        const hamburger = document.getElementById("hamburger");
-        const closeModal = document.getElementById("closeModal");
+// ----------------- Unified modal + hamburger controller (fixed) -----------------
+(function(){
+    const modalEl = document.getElementById("modal");
+    const hamburgerEl = document.getElementById("hamburger");
+    const closeBtnEl = document.getElementById("closeModal"); // может быть null
 
-        hamburger.addEventListener("click", () => {
-            modal.classList.add("active");
-            hamburger.classList.add("active");
-            document.body.classList.add("modal-open"); // блокируем скролл фона
+    // Если нет обязательных элементов — выходим
+    if (!modalEl || !hamburgerEl) return;
+
+    function openMenu() {
+        hamburgerEl.classList.add("active");
+        modalEl.classList.add("active");
+        document.body.classList.add("modal-open");
+    }
+
+    function closeMenu() {
+        hamburgerEl.classList.remove("active");
+        modalEl.classList.remove("active");
+        document.body.classList.remove("modal-open");
+    }
+
+    // Toggle hamburger
+    hamburgerEl.addEventListener("click", (e) => {
+        // предотвращаем двойные клики/бублирование
+        e.stopPropagation();
+        if (hamburgerEl.classList.contains("active")) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
+    });
+
+    // Если существует кнопка внутри модалки — повесим на неё обработчик
+    if (closeBtnEl) {
+        closeBtnEl.addEventListener("click", (e) => {
+            e.stopPropagation();
+            closeMenu();
         });
+    }
 
-        closeModal.addEventListener("click", () => {
-            modal.classList.remove("active");
-            hamburger.classList.remove("active");
-            document.body.classList.remove("modal-open"); // разблокируем скролл
+    // ESC закрывает
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modalEl.classList.contains("active")) {
+            closeMenu();
+        }
+    });
+
+    // Клик по фону модалки закрывает
+    modalEl.addEventListener("click", (e) => {
+        if (e.target === modalEl) closeMenu();
+    });
+
+    // Не даём кликам внутри контента всплыть на фон
+    const modalContent = modalEl.querySelector(".modal-content");
+    if (modalContent) {
+        modalContent.addEventListener("click", (e) => e.stopPropagation());
+    }
+})();
+
+
+
+
+    //-----------------------------------------------------\\
+    // ==================== Эквалайзер ===================== \\
+
+    const eqBands = document.querySelectorAll(".band input[type='range']");
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+    const frequencies = [
+        32, 64, 125, 250, 500, 630, 800, 1000, 1250,
+        1600, 2000, 2500, 3150, 4000, 5000, 6300,
+        8000, 16000
+    ];
+
+    const filters = frequencies.map(freq => {
+        const f = audioContext.createBiquadFilter();
+        f.type = "peaking";
+        f.frequency.value = freq;
+        f.Q.value = 1;
+        f.gain.value = 0;
+        return f;
+    });
+
+    // цепочка фильтров
+    filters.reduce((p, c) => { p.connect(c); return c; });
+    const finalFilterNode = filters[filters.length - 1];
+
+    // подключение аудио к фильтрам
+    audios.forEach(audio => {
+        const src = audioContext.createMediaElementSource(audio);
+        src.connect(filters[0]);
+    });
+
+    finalFilterNode.connect(audioContext.destination);
+
+    // изменение полос
+    eqBands.forEach((slider, i) => {
+        slider.addEventListener("input", () => {
+            filters[i].gain.value = parseFloat(slider.value);
         });
+    });
 
-        document.addEventListener("keydown", (e) => {
-            if (e.key === "Escape" && modal.classList.contains("active")) {
-                modal.classList.remove("active");
-                hamburger.classList.remove("active");
-                document.body.classList.remove("modal-open");
-            }
+    // Save / Reset
+    const saveBtn = document.getElementById("save-eq-settings");
+    const resetBtn = document.getElementById("reset-eq-settings");
+    const eqMessage = document.getElementById("eq-message");
+
+    function showEqMessage(txt) {
+        eqMessage.textContent = txt;
+        eqMessage.style.opacity = 1;
+        setTimeout(() => eqMessage.style.opacity = 0, 2000);
+    }
+
+    saveBtn.addEventListener("click", () => {
+        const data = Array.from(eqBands).map(s => s.value);
+        localStorage.setItem("eqSettings", JSON.stringify(data));
+        showEqMessage("Налаштування збережено");
+    });
+
+    resetBtn.addEventListener("click", () => {
+        eqBands.forEach((s, i) => {
+            s.value = 0;
+            filters[i].gain.value = 0;
         });
+        localStorage.removeItem("eqSettings");
+        showEqMessage("Налаштування видалено");
+    });
 
-        modal.addEventListener("click", (e) => {
-            if (e.target === modal) {
-                modal.classList.remove("active");
-                hamburger.classList.remove("active");
-                document.body.classList.remove("modal-open");
-            }
-        });
-
-         //-----------------------------------------------------\\
-        // ==================== Экварайзер ===================== \\
-
-        const eqBands = document.querySelectorAll(".band input[type='range']");
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
-        const frequencies = [
-            32, 64, 125, 250, 500, 630, 800, 1000, 1250,
-            1600, 2000, 2500, 3150, 4000, 5000, 6300, 8000, 16000
-        ];
-
-        // создание фильтров
-        const filters = frequencies.map((freq) => {
-            const filter = audioContext.createBiquadFilter();
-            filter.type = "peaking";
-            filter.frequency.value = freq;
-            filter.Q.value = 1;
-            filter.gain.value = 0;
-            return filter;
-        });
-
-        // соединяем фильтры в цепь
-        filters.reduce((prev, curr) => {
-            prev.connect(curr);
-            return curr;
-        });
-
-        const finalFilterNode = filters[filters.length - 1];
-
-        // применяем фильтры ко всем аудио элементам
-        const audioStream = [
-            document.getElementById("stream1"),
-            document.getElementById("stream2"),
-            document.getElementById("stream3"),
-            document.getElementById("stream4")
-        ];
-
-        audioStream.forEach(audio => {
-            const source = audioContext.createMediaElementSource(audio);
-            source.connect(filters[0]);
-        });
-
-        finalFilterNode.connect(audioContext.destination);
-
-        // привязка слайдеров к фильтрам
-        function applyEqSettings(values) {
-            values.forEach((val, i) => {
+    window.addEventListener("DOMContentLoaded", () => {
+        const saved = localStorage.getItem("eqSettings");
+        if (saved) {
+            JSON.parse(saved).forEach((val, i) => {
                 eqBands[i].value = val;
                 filters[i].gain.value = parseFloat(val);
             });
         }
+    });
 
-        eqBands.forEach((slider, index) => {
-            slider.addEventListener("input", () => {
-                filters[index].gain.value = parseFloat(slider.value);
-            });
+    // разрешение AudioContext
+    window.addEventListener("click", () => {
+        if (audioContext.state === "suspended") audioContext.resume();
+    }, { once: true });
+
+    //--------------------------------------------------\\
+    // === Анимация для активной кнопки по частотам === \\
+    //--------------------------------------------------\\
+
+    const analyser = audioContext.createAnalyser();
+    analyser.fftSize = 128;
+
+    const bufferLength = analyser.frequencyBinCount;
+    const dataArray = new Uint8Array(bufferLength);
+
+    finalFilterNode.connect(analyser);
+
+    function animateButtons() {
+        requestAnimationFrame(animateButtons);
+        analyser.getByteFrequencyData(dataArray);
+
+        const avg = dataArray.reduce((a, b) => a + b) / dataArray.length;
+        const level = Math.min(100, (avg / 255) * 100);
+
+        buttons.forEach(btn => {
+            btn.style.setProperty("--eqHeight",
+                btn.classList.contains("active") ? `${level}%` : "0%"
+            );
         });
+    }
+    animateButtons();
 
-        // кнопки Save/Reset
-        const saveBtn = document.getElementById("save-eq-settings");
-        const resetBtn = document.getElementById("reset-eq-settings");
-        const eqMessage = document.getElementById("eq-message");
+    //-----------------------------------------------------\\
+    // === Сохранение громкости === \\
+    //-----------------------------------------------------\\
 
-        function showEqMessage(text) {
-            eqMessage.textContent = text;
-            eqMessage.style.opacity = 1;
+    const volumeSlider = document.getElementById("volume");
 
-            setTimeout(() => {
-                eqMessage.style.opacity = 0;
-            }, 2000);
-        }
+    // Загружаем громкость при старте
+    const savedVol = localStorage.getItem("saved_volume");
+    if (savedVol !== null) {
+        volumeSlider.value = savedVol;
+        audios.forEach(a => a.volume = savedVol);
+    }
 
-        saveBtn.addEventListener("click", () => {
-            const settings = Array.from(eqBands).map(slider => slider.value);
-            localStorage.setItem("eqSettings", JSON.stringify(settings));
-            showEqMessage("Настройка сохранена");
-        });
+    // Сохраняем громкость при каждом изменении
+    volumeSlider.addEventListener("input", () => {
+        localStorage.setItem("saved_volume", volumeSlider.value);
+    });
 
-        resetBtn.addEventListener("click", () => {
-            eqBands.forEach((slider, i) => {
-                slider.value = 0;
-                filters[i].gain.value = 0;
-            });
-            localStorage.removeItem("eqSettings");
-            showEqMessage("Сброс настроек");
-        });
 
-        window.addEventListener("DOMContentLoaded", () => {
-            const saved = localStorage.getItem("eqSettings");
-            if (saved) {
-                const values = JSON.parse(saved);
-                if (values.length === eqBands.length) {
-                    applyEqSettings(values);
-                }
-            }
-        });
+    //-----------------------------------------------------\\
+    // === Перезагрузка страницы при обрыве потока === \\
+    //   Работает даже при заблокированном экране телефона
+    //-----------------------------------------------------\\
 
-        // разрешение автозапуска аудио
-        window.addEventListener("click", () => {
-            if (audioContext.state === "suspended") {
-                audioContext.resume();
-            }
-        }, { once: true });
+    function watchStream() {
+        setInterval(() => {
+            const activeBtn = document.querySelector(".btn.active");
+            if (!activeBtn) return;
 
-        //--------------------------------------------------\\
-        // === Анимация для каждой активной радио кнопки === \\
+            const audio = document.getElementById(activeBtn.dataset.audio);
+            if (!audio) return;
 
-        const analyser = audioContext.createAnalyser();
-        analyser.fftSize = 128;
-
-        const bufferLength = analyser.frequencyBinCount;
-        const dataArray = new Uint8Array(bufferLength);
-
-        finalFilterNode.connect(analyser); 
- 
-        function animateButtons() {
-            requestAnimationFrame(animateButtons);
-            analyser.getByteFrequencyData(dataArray);
-
-            const avg = dataArray.reduce((a, b) => a + b) / dataArray.length;
-            const level = Math.min(100, (avg / 255) * 100);
-
-            buttons.forEach(btn => {
-                if (btn.classList.contains("active")) {
-                    btn.style.setProperty("--eqHeight", `${level}%`);
-                } else {
-                    btn.style.setProperty("--eqHeight", "0%");
-                }
-            });
-        }
-
-        animateButtons();
-
-            
-        //-----------------------------------------------------\\
-        // === Автовозврат потока при падении эквалайзера  === \\
-        //-----------------------------------------------------\\
-
-        let observer = null;
-
-        function watchButton(btn) {
-            // Если уже был наблюдатель — отключаем
-            if (observer) {
-                observer.disconnect();
-                observer = null;
+            // Если поток упал — перезагрузка страницы
+            if (audio.error ||
+                audio.networkState === HTMLMediaElement.NETWORK_NO_SOURCE ||
+                audio.networkState === HTMLMediaElement.NETWORK_EMPTY ||
+                (audio.paused && audio.src)
+            ) {
+                location.reload();
             }
 
-            if (!btn) return;
+        }, 3000); // каждые 3 секунды
+    }
 
-            // Создаем новый наблюдатель
-            observer = new MutationObserver(() => {
-                const eqHeight = btn.style.getPropertyValue('--eqHeight') || "0%";
-                const numericValue = parseFloat(eqHeight);
+    watchStream();
 
-                if (numericValue === 0) {
-                    // Сохраняем id активной кнопки
-                    localStorage.setItem("lastActiveBtnId", btn.id);
-
-                    // Перезагружаем страницу
-                    location.reload();
-                }
-            });
-
-            observer.observe(btn, {
-                attributes: true,
-                attributeFilter: ["style"]
-            });
-        }
-
-        function findAndWatchActiveBtn() {
-            const activeBtn = document.querySelector('.btn.active');
-            watchButton(activeBtn);
-        }
-
-        //-----Автовосстановление после reload-----------------\\
-        window.addEventListener("DOMContentLoaded", () => {
-            const lastActiveBtnId = localStorage.getItem("lastActiveBtnId");
-            if (lastActiveBtnId) {
-                const lastBtn = document.getElementById(lastActiveBtnId);
-                if (lastBtn) {
-                    lastBtn.click(); // Запускаем поток
-                }
-                localStorage.removeItem("lastActiveBtnId");
-            }
-
-            // Следим за изменениями класса active (переключение потока)
-            const container = document.body; // можно уточнить родителя кнопок
-            const classObserver = new MutationObserver(() => {
-                findAndWatchActiveBtn();
-            });
-
-            classObserver.observe(container, {
-                subtree: true,
-                attributes: true,
-                attributeFilter: ["class"]
-            });
-
-            // Первоначальный запуск
-            findAndWatchActiveBtn();
-        });
 
     </script>
 

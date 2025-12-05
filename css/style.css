@@ -6,9 +6,26 @@ body {
     background: #111;
 }
 
+ul {
+    list-style-type: none;
+}
+
+a {
+    color: #747474;
+    text-decoration: none;
+}
+
+h2 {
+    color: white;
+}
+
 .container {
     width: max-content;
+    height: 100%;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 header {
@@ -19,6 +36,8 @@ header {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
+    background: #111111;
+    margin-bottom: 20px;
 }
 
 .logo {
@@ -34,7 +53,7 @@ header {
     /* position: fixed;
     top: 20px;
     left: 20px; */
-    z-index: 1;
+    z-index: 10;
     width: 30px;
     height: 25px;
     background: transparent;
@@ -85,7 +104,7 @@ header {
     visibility: hidden;
     pointer-events: none;
     transition: opacity 0.4s ease, visibility 0.4s ease;
-    width: 310px;
+    /* width: 310px; */
     margin: 0 auto;
 }
 
@@ -94,12 +113,14 @@ header {
     opacity: 1;
     visibility: visible;
     pointer-events: all;
+    height: 100%;
 }
 
 /* Контент внутри */
 .modal-content {
-    text-align: right;
-    color: #fff;
+    max-height: 90vh;
+    overflow-y: auto;
+    margin-top: 80px;
 }
 
 /* Кнопка закрытия */
@@ -167,7 +188,9 @@ body.modal-open {
 
 .btn span {
   position: relative;
+  text-align: center;
   z-index: 1;
+
 }
 
 
@@ -244,7 +267,7 @@ body.modal-open {
     display: flex;
     justify-content: center;
     flex-wrap: nowrap;
-    gap: 34px;
+    gap: 50px;
     position: relative;
 }
 
@@ -326,6 +349,10 @@ body.modal-open {
 
 /* Кнопки сохранения и сброса настроек */
 
+.equalizer-buttons {
+    margin-top: 20px;
+}
+
 .equalizer-container button {
     width: 140px;
     height: 40px;
@@ -358,6 +385,43 @@ body.modal-open {
     text-align: center;
     font-size: 13px;
     transition: opacity 0.5s ease;
+    padding-bottom: 40px;
 }
 
 /* end */
+
+.footer {
+    color: #747474;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer li {
+    align-content: center;
+    height: 50px;
+}
+
+.footer ul li:not(:last-child):hover {
+    cursor: pointer;
+    color: #000000;
+    background-color: #ff6600;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.footer ul li:hover a {
+    color: #000000;
+    font-weight: 600;
+    display: block;
+}
+
+.footer ul li:not(:last-child):active {
+    background-color: #adadad;
+}
+
+.footer ul li:last-child {
+    height: 50px;
+    margin-top: 20px;
+    border-top: 1px solid #444444;
+}
+
