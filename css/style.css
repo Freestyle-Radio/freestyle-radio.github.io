@@ -57,7 +57,7 @@ header {
     /* position: fixed;
     top: 20px;
     left: 20px; */
-    z-index: 10;
+    z-index: 9;
     width: 30px;
     height: 25px;
     background: transparent;
@@ -103,7 +103,7 @@ header {
     /* display: flex; */
     justify-content: center;
     align-items: center;
-    z-index: 2;
+    z-index: 7;
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
@@ -122,9 +122,10 @@ header {
 
 /* Контент внутри */
 .modal-content {
-    max-height: 90vh;
+    max-height: 100vh;
+    height: 100%;
     overflow-y: auto;
-    margin-top: 80px;
+    padding-top: 80px;
 }
 
 /* Кнопка закрытия */
@@ -413,37 +414,52 @@ body.modal-open {
     color: #747474;
     text-align: center;
     margin-top: 50px;
+    position: relative;
 }
 
-.footer li {
-    align-content: center;
-    height: 50px;
-}
+/* кнопка DONATE */
 
-.footer ul li:not(:last-child):hover {
-    cursor: pointer;
-    color: #000000;
-    background-color: #ff6600;
-    font-weight: 600;
-    transition: 0.2s;
-}
-
-.footer ul li:hover a {
-    color: #000000;
-    font-weight: 600;
-    display: block;
-}
-
-.footer ul li:not(:last-child):active {
-    background-color: #adadad;
-}
-
-.footer ul li:last-child {
+.donate-btn {
+    position: relative;
+    width: 100%;
     height: 50px;
     margin-top: 20px;
-    border-top: 1px solid #444444;
+    margin-bottom: 10px;
+    border: 1px solid #444444;
+    background-color: #ff6600;
+    color: white;
+    font-size: larger;
+    cursor: pointer;
 }
 
+.donate-btn:hover {
+    background-color: #ff9100;
+}
+.donate-btn:active {
+    background-color: #0094ae;
+}
+
+/* выпадающий список */
+.donate-dropdown {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: none;
+    color: #ffffff;
+    font-size: larger;
+}
+
+.donate-dropdown.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.donate-dropdown p {
+    margin: 0;
+}
 
 /* ----------------------------------------
    ----------- Страница пароля ------------ 
@@ -472,7 +488,8 @@ body.modal-open {
     pointer-events: none;
 }
 
-#password-protect h2 {
+#password-protect h1 {
+    font-size: xx-large;
     color: rgb(255, 145, 0);
     margin-bottom: 10px;
 }
@@ -493,14 +510,14 @@ body.modal-open {
     font-size: 18px;
     border: none;
     border-radius: 8px;
-    background:#3e8e41;
+    background:#d85600;
     color: white;
     cursor: pointer;
     transition: 0.2s;
 }
 
 #password-protect button:hover {
-    background: #265b28;
+    background: #a34100;
 }
 
 #wrong-pass, #attempts-left, #locked {
@@ -514,7 +531,6 @@ body.modal-open {
 }
 
 /* ---------------- End ------------------- */
-
 
 
 

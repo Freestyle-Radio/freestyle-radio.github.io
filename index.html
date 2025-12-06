@@ -12,9 +12,10 @@
 <body>
     <!-- Страница пароля -->
     <div id="password-protect">
-        <h2>Enter password</h2>
-        <input id="pass-input" type="password" placeholder="Password">
-        <button id="pass-btn">Enter</button>
+        <h1>FreeStyle Radio</h1>
+        <!-- <p>My life is not ruled by a dollar, my life is ruled by a melody</p> -->
+        <input id="pass-input" type="password" placeholder="Enter password">
+        <button id="pass-btn">Send</button>
         <div id="wrong-pass" style="color:#ff8080;">Wrong password</div>
         <div id="attempts-left" style="color:#ffd480;"></div>
         <div id="locked">Too many attempts. Refresh the page.</div>
@@ -52,21 +53,12 @@
         <div class="container__box">
             <!-- Футер -->
             <footer class="footer">
-            <ul>
-                <!-- information_about_us.html -->
-                <li><a href="information_about_us.html">Інформація про нас</a></li>
-                <!-- advertising_placement.html -->
-                <li><a href="advertising_placement.html">Розміщення реклами</a></li>
-                <!-- to_the_rights_holders.html -->
-                <li><a href="to_the_rights_holders.html">Правовласникам</a></li>
-                <!-- collaboration.html -->
-                <li><a href="collaboration.html">Співробітництво</a></li>
-                <!-- reviews.html -->
-                <li><a href="reviews.html">Відгуки</a></li>
-                <!-- frequently_asked_questions.html -->
-                <li><a href="frequently_asked_questions.html">Часті запитання</a></li>
-                <li>Усі права захищені</li>
-            </ul>   
+                <button id="donateBtn" class="donate-btn">DONATE</button>
+
+                <!-- Выпадающий список -->
+                <div id="donateDropdown" class="donate-dropdown">
+                    <p>Support the project<br>4874 1000 2089 7784</p>
+                </div>
             </footer>
         </div>
     </div>
@@ -311,7 +303,7 @@
     saveBtn.addEventListener("click", () => {
         const data = Array.from(eqBands).map(s => s.value);
         localStorage.setItem("eqSettings", JSON.stringify(data));
-        showEqMessage("Налаштування збережено");
+        showEqMessage("Settings saved");
     });
 
     resetBtn.addEventListener("click", () => {
@@ -320,7 +312,7 @@
             filters[i].gain.value = 0;
         });
         localStorage.removeItem("eqSettings");
-        showEqMessage("Налаштування видалено");
+        showEqMessage("Settings deleted");
     });
 
     window.addEventListener("DOMContentLoaded", () => {
@@ -420,7 +412,7 @@
     //---------------------------------------------------------\\
 
 
-    const REAL_PASSWORD = "F3$t_Y[L.7]"; // ← УСТАНОВИ СВОЙ ПАРОЛЬ
+    const REAL_PASSWORD = "1234"; // ← УСТАНОВИ СВОЙ ПАРОЛЬ
     const PROTECT_DIV = document.getElementById("password-protect");
     const MAX_ATTEMPTS = 5;
 
@@ -499,6 +491,29 @@
         document.getElementById("pass-btn").disabled = true;
         document.getElementById("pass-input").disabled = true;
     }
+
+
+      //-----------------------------------------------------\\
+     // ========== Выпадающий список для донатов ============ \\
+    //---------------------------------------------------------\\
+
+
+    const donateBtn = document.getElementById("donateBtn");
+    const dropdown = document.getElementById("donateDropdown");
+
+    let open = false;
+
+    donateBtn.addEventListener("click", () => {
+        open = !open;
+
+        if (open) {
+            dropdown.classList.add("active");
+            donateBtn.textContent = "CLOSE";
+        } else {
+            dropdown.classList.remove("active");
+            donateBtn.textContent = "DONATE";
+        }
+    });
 
 
     </script>
