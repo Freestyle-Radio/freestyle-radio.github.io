@@ -57,7 +57,7 @@
 
                 <!-- Выпадающий список -->
                 <div id="donateDropdown" class="donate-dropdown">
-                    <p>Support the project<br>4874 1000 2089 7784</p>
+                    <p>Support the project<br>Card: 4874 1000 2089 7784</p>
                 </div>
             </footer>
         </div>
@@ -167,7 +167,7 @@
     const volumeControl = document.getElementById('volume');
 
     function initVolumeControl() {
-        if (window.innerWidth > 768 && volumeControl) {
+        if (window.innerWidth > 1200 && volumeControl) {
             volumeControl.style.display = 'block';
             audios.forEach(audio => audio.volume = volumeControl.value);
 

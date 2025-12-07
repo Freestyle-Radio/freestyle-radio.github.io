@@ -28,6 +28,79 @@ h2 {
     justify-content: space-between;
 }
 
+/* ----------------------------------------
+   ----------- Страница пароля ------------ 
+   ---------------------------------------- */
+
+#password-protect {
+    position: fixed;
+    inset: 0;
+    background: #000000ee;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 999999;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    opacity: 1;
+    backdrop-filter: blur(8px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+#password-protect.hidden {
+    opacity: 0;
+    transform: scale(1.05);
+    pointer-events: none;
+}
+
+#password-protect h1 {
+    font-size: xx-large;
+    color: rgb(255, 145, 0);
+    margin-bottom: 10px;
+}
+
+#password-protect input {
+    padding: 10px 15px;
+    font-size: 18px;
+    border-radius: 8px;
+    border: none;
+    margin-bottom: 15px;
+    width: 260px;
+    text-align: center;
+    background-color: #fffffd;
+}
+
+#password-protect button {
+    padding: 10px 109px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    background:#d85600;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+#password-protect button:hover {
+    background: #a34100;
+}
+
+#wrong-pass, #attempts-left, #locked {
+    margin-top: 10px;
+    font-size: 16px;
+    display: none;
+}
+
+#locked {
+    color: #ff5050;
+}
+
+
+/* ---------------- End ------------------- */
+
+
 header {
     height: 10vh;
     display: flex;
@@ -52,6 +125,7 @@ header {
 /* ----------------------------------------
    -----Гамбургер и Модальное окно -------- 
    ---------------------------------------- */
+
 
 .hamburger {
     /* position: fixed;
@@ -149,10 +223,10 @@ body.modal-open {
 
 /* ---------------- End ------------------- */
 
-
 /* ----------------------------------------
    ------------ Радио кнопки -------------- 
    ---------------------------------------- */
+
 
 .radio-battons {
     display: grid;
@@ -208,6 +282,7 @@ body.modal-open {
 /* ----------------------------------------
    -------- Регулятор громкости ----------- 
    ---------------------------------------- */
+
 
 .volume-control input[type="range"] {
     -webkit-appearance: none;
@@ -269,6 +344,7 @@ body.modal-open {
    -------------- Эквалайзер -------------- 
    ---------------------------------------- */
 
+
 .equalizer-container {
     display: flex;
     flex-direction: column;
@@ -276,7 +352,7 @@ body.modal-open {
     gap: 20px;
     position: relative;
     /* padding-top: 40px; */
-    padding-bottom: 15px;
+    padding-bottom: 80px;
 }
 
 .equalizer-row {
@@ -432,9 +508,6 @@ body.modal-open {
     cursor: pointer;
 }
 
-.donate-btn:hover {
-    background-color: #ff9100;
-}
 .donate-btn:active {
     background-color: #0094ae;
 }
@@ -460,77 +533,4 @@ body.modal-open {
 .donate-dropdown p {
     margin: 0;
 }
-
-/* ----------------------------------------
-   ----------- Страница пароля ------------ 
-   ---------------------------------------- */
-
-#password-protect {
-    position: fixed;
-    inset: 0;
-    background: #000000ee;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 999999;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    opacity: 1;
-    backdrop-filter: blur(8px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-}
-
-#password-protect.hidden {
-    opacity: 0;
-    transform: scale(1.05);
-    pointer-events: none;
-}
-
-#password-protect h1 {
-    font-size: xx-large;
-    color: rgb(255, 145, 0);
-    margin-bottom: 10px;
-}
-
-#password-protect input {
-    padding: 10px 15px;
-    font-size: 18px;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 15px;
-    width: 260px;
-    text-align: center;
-    background-color: #fffffd;
-}
-
-#password-protect button {
-    padding: 10px 109px;
-    font-size: 18px;
-    border: none;
-    border-radius: 8px;
-    background:#d85600;
-    color: white;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-#password-protect button:hover {
-    background: #a34100;
-}
-
-#wrong-pass, #attempts-left, #locked {
-    margin-top: 10px;
-    font-size: 16px;
-    display: none;
-}
-
-#locked {
-    color: #ff5050;
-}
-
-/* ---------------- End ------------------- */
-
-
 
