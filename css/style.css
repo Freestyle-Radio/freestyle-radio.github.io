@@ -502,7 +502,7 @@ body.modal-open {
     margin-top: 20px;
     margin-bottom: 10px;
     border: 1px solid #444444;
-    background-color: #ff6600;
+    background-color: #ff6600d9;
     color: white;
     font-size: larger;
     cursor: pointer;
